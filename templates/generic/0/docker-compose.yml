@@ -1,4 +1,4 @@
-composer:
+generic:
   image: nabs/nabs:v1
   environment:
     DOMAINE_NAME: ${DOMAINE_NAME}
@@ -9,7 +9,8 @@ composer:
     - galera/galera-lb:mysql
     - memcached/memcache:mcserver
   volumes:
-    - ${VOLUME}:/usr/share/nginx/www/html/IMG
+    - ${VOLUME_IMG}:/usr/share/nginx/www/html/IMG
+    - ${VOLUME_LIB}:/usr/share/nginx/www/html/lib
   tty: true
   stdin_open: true
   volume_driver: ${VOLUME_DRIVER}
