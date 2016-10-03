@@ -25,9 +25,14 @@
       description: "Mot de passe de la base de donnee Mysql"
       type: "string"
       required: true
-    - variable: "VOLUME"
+    - variable: "VOLUME_IMG"
       label: "Volume"
-      description: "Chemin du volume"
+      description: "Chemin du volume IMG"
+      type: "string"
+      required: false
+    - variable: "VOLUME_LIB"
+      label: "Volume"
+      description: "Chemin du volume lib"
       type: "string"
       required: false
     - variable: "VOLUME_DRIVER"
