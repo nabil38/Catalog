@@ -26,12 +26,12 @@
       type: "string"
       required: true
     - variable: "VOLUME_IMG"
-      label: "Volume"
+      label: "Volume IMG"
       description: "Chemin du volume IMG"
       type: "string"
       required: false
     - variable: "VOLUME_LIB"
-      label: "Volume"
+      label: "Volume lib"
       description: "Chemin du volume lib"
       type: "string"
       required: false
