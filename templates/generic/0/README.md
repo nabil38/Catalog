@@ -1,4 +1,4 @@
-# COMPOSER
+# GENERIC
 
 Site de base
 
