@@ -26,8 +26,8 @@
       type: "string"
       required: true
     - variable: "VOLUME"
-      label: "Volume"
-      description: "Chemin du volume"
+      label: "Volume IMG"
+      description: "Nom du volume IMG (nom du repertoire dans sur le serveur nfs)"
       type: "string"
       required: false
     - variable: "VOLUME_DRIVER"
