@@ -9,8 +9,8 @@ generic:
     - galera/galera-lb:mysql
     - memcached/memcache:mcserver
   volumes:
-    - ${VOLUME_IMG}:/var/www/html/IMG
-    - ${VOLUME_LIB}:/var/www/html/lib
+    - ${VOLUME}/IMG:/var/www/html/IMG
+    - ${VOLUME}/lib:/var/www/html/lib
   tty: true
   stdin_open: true
   volume_driver: ${VOLUME_DRIVER}
