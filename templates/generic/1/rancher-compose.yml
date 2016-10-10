@@ -3,7 +3,7 @@
   version: "Generic-V0.2"
   description: "Site de base ubuntu"
   maintainer: "Nabil DJIDI <public@djidi.com>"
-  uuid: generic-0
+  uuid: generic-1
   questions:
     - variable: "DOMAINE_NAME"
       label: "Nom de domaine"
