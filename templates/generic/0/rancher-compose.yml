@@ -1,6 +1,6 @@
 .catalog:
   name: "Generic"
-  version: "Generic-V0.1"
+  version: "Generic-V0.2"
   description: "Site de base alpine"
   maintainer: "Nabil DJIDI <public@djidi.com>"
   uuid: generic-0
@@ -36,4 +36,5 @@
       type: "string"
       required: false
       default: "convoy-nfs"
+
 composer:
