@@ -1,7 +1,7 @@
 .catalog:
   name: "Generic"
-  version: "Generic-V0.2"
-  description: "Site de base alpine"
+  version: "Alpine-V0.2"
+  description: "Site de base sur alpine"
   maintainer: "Nabil DJIDI <public@djidi.com>"
   uuid: generic-0
   questions:
@@ -27,7 +27,7 @@
       required: true
     - variable: "VOLUME"
       label: "Prefix du Volume"
-      description: "Prefix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
+      description: "Préfix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
       type: "string"
       required: false
     - variable: "VOLUME_DRIVER"

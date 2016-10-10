@@ -1,5 +1,5 @@
 generic:
-  image: nabs/nabs:v1
+  image: nabs/nabs:v2
   environment:
     DOMAINE_NAME: ${DOMAINE_NAME}
     SITE_DB_NAME: ${MYSQL_DATABASE}
