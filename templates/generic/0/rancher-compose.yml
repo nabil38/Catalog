@@ -27,7 +27,7 @@
       required: true
     - variable: "VOLUME"
       label: "Prefix du Volume"
-      description: "Préfix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
+      description: "Prefix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
       type: "string"
       required: false
     - variable: "VOLUME_DRIVER"
