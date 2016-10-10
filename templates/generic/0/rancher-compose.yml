@@ -36,5 +36,4 @@
       type: "string"
       required: false
       default: "convoy-nfs"
-
 composer:
