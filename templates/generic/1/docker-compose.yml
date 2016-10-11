@@ -18,4 +18,4 @@ generic:
   labels:
     io.rancher.container.pull_image: "always"
     io.rancher.scheduler.global: "true"
-    io.rancher.scheduler.affinity:host_label: "trefle=1"
+    io.rancher.scheduler.affinity:host_label: "appli=1"
