@@ -36,6 +36,8 @@
       type: "string"
       required: false
       default: "convoy-nfs"
+
+generic:
   health_check:
     port: 80
     interval: 2000
@@ -44,5 +46,3 @@
     strategy: recreate
     healthy_threshold: 2
     response_timeout: 2000
-
-composer:
