@@ -3,4 +3,4 @@
 Site de base
 
 ## Usage
-Use Label "trefle=1" on host for container deployment
+  Use Label "appli=1" on host for container deployment
