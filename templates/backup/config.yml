@@ -1,0 +1,5 @@
+name: Backup
+description: |
+  Backup to FTP powered by Titeya
+version: Backup-V0.1
+category: Backup
