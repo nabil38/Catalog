@@ -1,0 +1,8 @@
+.catalog:
+  name: "nfs-server"
+  version: "v0.1"
+  description: "NFS server"
+  maintainer: "Nabil DJIDI <public@djidi.com>"
+  uuid: nfs-server-0
+
+nfs-server:

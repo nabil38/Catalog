@@ -1,0 +1,11 @@
+nfs-server:
+  image: nabs/nfs-server
+  privileged: true
+  volumes:
+    - /exports:/exports
+  command:
+    - /exports
+  labels:
+    io.rancher.container.pull_image: "always"
+    io.rancher.scheduler.global: "true"
+    io.rancher.scheduler.affinity:host_label: "nfs=server"
