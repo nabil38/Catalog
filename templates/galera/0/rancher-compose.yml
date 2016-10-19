@@ -2,7 +2,7 @@
   name: "Galera DB"
   version: 10.0.22-rancher1
   description: |
-    Galera Cluster based on MariaDB 10.0.22
+    Galera Cluster based on MariaDB 10.0.22 + phpmyadmin
   questions:
     - variable: "mysql_root_password"
       type: string
@@ -49,3 +49,11 @@ galera-lb:
     unhealthy_threshold: 3
     healthy_threshold: 2
     response_timeout: 2000
+PhpMyAdmin:
+  health_check:
+      port: 80
+      interval: 10000
+      unhealthy_threshold: 3
+      request_line: GET / HTTP/1.0
+      healthy_threshold: 2
+      response_timeout: 10000

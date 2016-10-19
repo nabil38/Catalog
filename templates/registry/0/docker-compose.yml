@@ -45,7 +45,7 @@ htpass:
   - /bin/sh
   command:
   - -c
-  - 'htpasswd -Bbn ${REGISTRY_USER_NAME} ${REGISTRY_PASSWD} > /auth/htpasswd'
+  - 'htpasswd -Bbn ${REGISTRY_USER_NAME} "${REGISTRY_PASSWD}" > /auth/htpasswd'
   labels:
     io.rancher.scheduler.affinity:host_label: "registry=1"
     io.rancher.container.start_once: 'true'

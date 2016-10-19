@@ -11,6 +11,8 @@ mariadb-galera-server:
     - 'mariadb-galera-data'
   labels:
     io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label: "mysql=1"
+    io.rancher.scheduler.global: "true"
   entrypoint: bash -x /opt/rancher/start_galera
 mariadb-galera-data:
   image: rancher/galera:10.0.22-rancher2
@@ -33,9 +35,11 @@ galera-leader-forwarder:
 galera:
   image: rancher/galera-conf:v0.2.0
   labels:
-    io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
+    io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder,PhpMyAdmin
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:host_label: "mysql=1"
+    io.rancher.scheduler.global: "true"
   volumes_from:
     - 'mariadb-galera-data'
   stdin_open: true
@@ -46,7 +50,21 @@ galera-lb:
   expose:
   - 3306:3307/tcp
   tty: true
+  labels:
+    io.rancher.scheduler.affinity:host_label: "nfs=server"
+    io.rancher.scheduler.global: "true"
   image: rancher/load-balancer-service
   links:
   - galera:galera
+  stdin_open: true
+
+PhpMyAdmin:
+  links:
+  - galera-lb:db
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: pma=1
+  tty: true
+  image: phpmyadmin/phpmyadmin
   stdin_open: true
