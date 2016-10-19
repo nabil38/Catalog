@@ -35,7 +35,7 @@ galera-leader-forwarder:
 galera:
   image: rancher/galera-conf:v0.2.0
   labels:
-    io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder,PhpMyAdmin
+    io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
     io.rancher.container.hostname_override: container_name
     io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
     io.rancher.scheduler.affinity:host_label: "mysql=1"
