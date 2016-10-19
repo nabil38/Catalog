@@ -9,21 +9,6 @@
       required: true
       label: "MySQL Root Password"
       description: "Password given to the root mysql user"
-    - variable: "mysql_database"
-      type: string
-      required: true
-      label: "MySQL Database Name"
-      description: "MySQL database to create"
-    - variable: "mysql_user"
-      type: string
-      required: true
-      description: "MySQL user for the created database"
-      label: "MySQL DB User"
-    - variable: "mysql_password"
-      type: string
-      required: true
-      label: "MySQL DB Password"
-      description: "Password for the MySQL user of the created database"
 galera:
   scale: 3
   metadata:
@@ -49,3 +34,11 @@ galera-lb:
     unhealthy_threshold: 3
     healthy_threshold: 2
     response_timeout: 2000
+PhpMyAdmin:
+  health_check:
+      port: 80
+      interval: 10000
+      unhealthy_threshold: 3
+      request_line: GET / HTTP/1.0
+      healthy_threshold: 2
+      response_timeout: 10000
