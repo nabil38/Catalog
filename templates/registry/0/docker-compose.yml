@@ -11,7 +11,7 @@ registryv2:
     io.rancher.scheduler.global: 'true'
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: registry=1
-    io.rancher.sidekicks: letsencrypt
+    io.rancher.sidekicks: letsencrypt,htpass
   tty: true
   image: registry:2
   volumes:
@@ -39,7 +39,7 @@ htpass:
   image: registry:2
   volumes:
   - /auth:/auth
-  entrypoint: 
+  entrypoint:
   - htpasswd
   command:
   - -Bbn ${REGISTRY_USER_NAME} ${REGISTRY_PASSWD} > auth/htpasswd
