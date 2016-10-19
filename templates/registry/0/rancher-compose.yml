@@ -11,6 +11,18 @@
       default: "/etc/certs/idc"
       required: true
       type: string
+    - variable: REGISTRY_USER_NAME
+      label: User name
+      description: |
+        The user name to access the registry
+      required: true
+      type: string
+    - variable: REGISTRY_PASSWD
+      label: Password
+      description: |
+        Password to access the registry
+      required: true
+      type: string
     - variable: API_VERSION
       label: Let's Encrypt API Version
       description: |
