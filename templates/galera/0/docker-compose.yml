@@ -57,14 +57,3 @@ galera-lb:
   links:
   - galera:galera
   stdin_open: true
-
-PhpMyAdmin:
-  links:
-  - galera-lb:db
-  labels:
-    io.rancher.scheduler.global: 'true'
-    io.rancher.container.pull_image: always
-    io.rancher.scheduler.affinity:host_label: pma=1
-  tty: true
-  image: phpmyadmin/phpmyadmin
-  stdin_open: true
