@@ -1,0 +1,5 @@
+name: Registry
+description: |
+  Docker Registry server with tls and auth
+version: registry-V0.1
+category: Registry

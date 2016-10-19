@@ -1,0 +1,74 @@
+.catalog:
+  name: Registry
+  version: v0.1.0
+  description: Docker Registry server with tls and auth (includes letsencrypt side kick)
+  minimum_rancher_version: v0.63.0
+  questions:
+    - variable: STORAGE_VOLUME
+      label: Storage Volume
+      description: |
+        Certificate Storage Volume (on host)
+      default: "/etc/certs/idc"
+      required: true
+      type: string
+    - variable: API_VERSION
+      label: Let's Encrypt API Version
+      description: |
+        Select the API version used for issuing the certificate.
+        Use `Sandbox` for testing only.
+      required: true
+      type: enum
+      default: Production
+      options:
+        - Production
+        - Sandbox
+    - variable: EMAIL
+      label: Your Email Address
+      description: |
+        Enter the email address to use for creating the Let's Encrypt account.
+      required: true
+      type: string
+    - variable: CERT_NAME
+      label: Certificate Name
+      description: |
+        Name for storing the certificate in the Rancher API and in volumes.
+        Any existing certificate by that name will be updated.
+      required: true
+      type: string
+    - variable: DOMAINS
+      label: Domain Names
+      description: |
+        Comma delimited list of the certificate domains starting with the Common Name.
+        E.g: `example.com, dev.example.com`.
+      required: true
+      type: string
+    - variable: PUBLIC_KEY_TYPE
+      label: Public Key Algorithm
+      description: |
+        Select one of the available key types.
+      required: true
+      type: enum
+      default: RSA-2048
+      options:
+        - RSA-2048
+        - RSA-4096
+        - RSA-8192
+        - ECDSA-256
+        - ECDSA-384
+    - variable: RENEWAL_TIME
+      label: Renewal Time of Day (00-23)
+      description: |
+        Set the time of day (UTC in hours) at which certificate renewals should be run.
+      default: 12
+      required: true
+      type: int
+    - variable: CLOUDFLARE_EMAIL
+      label: CloudFlare Email Address
+      description: Enter the email address associated with your CloudFlare account.
+      type: string
+      required: false
+    - variable: CLOUDFLARE_KEY
+      label: CloudFlare API Key
+      description: Enter the Global API Key for your CloudFlare account.
+      type: string
+      required: false

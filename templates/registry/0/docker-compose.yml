@@ -1,0 +1,39 @@
+registryv2:
+  ports:
+  - 5000:5000/tcp
+  environment:
+    REGISTRY_AUTH: htpasswd
+    REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+    REGISTRY_HTTP_TLS_CERTIFICATE: /certs/fullchain.pem
+    REGISTRY_HTTP_TLS_KEY: /certs/privkey.pem
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: registry=1
+    io.rancher.sidekicks: letsencrypt
+  tty: true
+  image: registry:2
+  volumes:
+  - /auth:/auth
+  - ${STORAGE_VOLUME}:/certs
+  stdin_open: true
+letsencrypt:
+  image: janeczku/rancher-letsencrypt:v0.3.0
+  environment:
+    EULA: 'yes'
+    API_VERSION: ${API_VERSION}
+    CERT_NAME: ${CERT_NAME}
+    EMAIL: ${EMAIL}
+    DOMAINS: ${DOMAINS}
+    PUBLIC_KEY_TYPE: ${PUBLIC_KEY_TYPE}
+    RENEWAL_TIME: ${RENEWAL_TIME}
+    PROVIDER: 'CloudFlare'
+    CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
+    CLOUDFLARE_KEY: ${CLOUDFLARE_KEY}
+  volumes:
+    - ${STORAGE_VOLUME}:/etc/letsencrypt/production/certs
+  labels:
+    io.rancher.container.create_agent: 'true'
+    io.rancher.container.agent.role: 'environment'
+    io.rancher.scheduler.affinity:host_label: "registry=1"
