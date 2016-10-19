@@ -21,7 +21,7 @@ registryv2:
 letsencrypt:
   image: janeczku/rancher-letsencrypt:v0.3.0
   environment:
-    EULA: yes
+    EULA: Yes
     API_VERSION: ${API_VERSION}
     CERT_NAME: ${CERT_NAME}
     EMAIL: ${EMAIL}
