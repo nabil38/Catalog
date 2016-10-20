@@ -8,6 +8,7 @@ generic:
   external_links:
     - galera/galera-lb:mysql
     - memcached/memcache:mcserver
+    - backup/backup:bc
   volumes:
     - ${VOLUME}_IMG:/var/www/html/IMG
     - ${VOLUME}_local:/var/www/html/local
