@@ -8,7 +8,6 @@ generic:
   external_links:
     - galera/galera-lb:mysql
     - memcached/memcache:mcserver
-    - backup/backup:bc
   volumes:
     - ${VOLUME}_IMG:/var/www/html/IMG
     - ${VOLUME}_local:/var/www/html/local
@@ -19,4 +18,13 @@ generic:
   labels:
     io.rancher.container.pull_image: "always"
     io.rancher.scheduler.global: "true"
+    io.rancher.scheduler.affinity:host_label: "appli=1"
+install:
+  image: nabs/install
+  volumes:
+    - ${VOLUME}_IMG:/data
+  external_links:
+    - backup/backup:bc
+  labels:
+    io.rancher.container.start_once: true
     io.rancher.scheduler.affinity:host_label: "appli=1"

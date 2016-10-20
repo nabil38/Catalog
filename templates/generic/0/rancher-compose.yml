@@ -46,3 +46,6 @@ generic:
     strategy: recreate
     healthy_threshold: 2
     response_timeout: 2000
+
+install:
+  scale: 1
