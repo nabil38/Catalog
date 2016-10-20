@@ -1,6 +1,6 @@
 # BACKUP
 
-backup to FTP powered by Titeya  
+backup to FTP powered by Titeya & IDC
 MongoDB - Mysql - NFS Host Files
 
 ## Usage
