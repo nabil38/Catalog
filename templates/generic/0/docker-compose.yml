@@ -1,6 +1,7 @@
 generic:
   image: nabs/nabs:v1
   environment:
+    DATA_VOLUME: ${VOLUME}
     DOMAINE_NAME: ${DOMAINE_NAME}
     SITE_DB_NAME: ${MYSQL_DATABASE}
     SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
