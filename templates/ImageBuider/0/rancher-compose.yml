@@ -20,6 +20,7 @@
       description: "ex: svn://trac.rezo.net/spip"
       type: "string"
       required: true
+      default: "svn://svn.alg-network.com/dev/interdev/spip/tags/generic"
     - variable: "SVN_USER"
       label: "Login svn"
       description: "Login d'acces au serveur svn si privé"
