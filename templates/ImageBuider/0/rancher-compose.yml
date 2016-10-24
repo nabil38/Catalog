@@ -23,12 +23,12 @@
       default: "svn://svn.alg-network.com/dev/interdev/spip/tags/generic"
     - variable: "SVN_USER"
       label: "Login svn"
-      description: "Login d'acces au serveur svn si privé"
+      description: "Login d'acces au serveur svn"
       type: "string"
       required: true
     - variable: "SVN_PASS"
-      label: "Mot de pass du repo svn si privé"
-      description: "Mot de pass pour l'acces au serveur svn si privé"
+      label: "Mot de pass"
+      description: "Mot de pass pour l'acces au serveur svn"
       type: "string"
       required: true
     - variable: "DOCKER_REPO"
