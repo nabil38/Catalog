@@ -1,0 +1,5 @@
+name: ImageBuilder
+description: |
+  Build and push image to private registry
+version: imagebuilder-V0.2
+category: Registry

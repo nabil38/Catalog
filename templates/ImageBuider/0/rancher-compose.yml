@@ -1,0 +1,54 @@
+.catalog:
+  name: "imagebuilder"
+  version: "imagebuilder-V0.2"
+  description: "Build and push image to private registry"
+  maintainer: "Nicolas Bellamy <n.bellamy@titeya.com>"
+  uuid: imagebuilder-0
+  questions:
+    - variable: "IMAGE_INFOS"
+      label: "TAG"
+      description: "Nom et tag de l'image (organisation/image:version)"
+      type: "string"
+      required: true
+    - variable: "GIT_REPO"
+      label: "Lien Github"
+      description: "ex: https://username:password@github.com/"
+      type: "string"
+      required: true
+    - variable: "SVN_REPO"
+      label: "Lien repository svn"
+      description: "ex: svn://trac.rezo.net/spip"
+      type: "string"
+      required: true
+    - variable: "SVN_USER"
+      label: "Login svn"
+      description: "Login d'acces au serveur svn si privé"
+      type: "string"
+      required: true
+    - variable: "SVN_PASS"
+      label: "Mot de pass du repo svn si privé"
+      description: "Mot de pass pour l'acces au serveur svn si privé"
+      type: "string"
+      required: true
+    - variable: "DOCKER_REPO"
+      label: "Domaine du registry"
+      description: "domaine.com:5000"
+      type: "string"
+      required: true
+    - variable: "REPO_USER"
+      label: "Registry utilisateur"
+      description: "Nom d'utilisateure"
+      type: "string"
+      required: true
+    - variable: "REPO_PASS"
+      label: "Registry mot de passe"
+      description: "Mot de passe"
+      type: "string"
+      required: true
+    - variable: "REPO_EMAIL"
+      label: "Registry email"
+      description: "Adresse email"
+      type: "string"
+      required: true
+
+imagebuilder:
