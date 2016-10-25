@@ -1,6 +1,6 @@
 .catalog:
   name: "Generic"
-  version: "ubuntu-V0.2"
+  version: "Alpine-V0.2"
   description: "Site de base sur ubuntu"
   maintainer: "Nabil DJIDI <public@djidi.com>"
   uuid: generic-0
