@@ -1,6 +1,6 @@
 .catalog:
   name: "backup"
-  version: "Backup-V0.1"
+  version: "Backup-V0.2"
   description: "Backup to FTP"
   maintainer: "Nicolas Bellamy <n.bellamy@titeya.com>"
   uuid: backup-0
@@ -52,19 +52,19 @@
       type: "string"
       required: false
     - variable: "FTP_HOST backup"
-      label: "Hote FTP"
+      label: "Hote FTP de backup"
       description: "Hote serveur FTP de backup"
       type: "string"
       required: true
       default: ""
     - variable: "FTP_PORT"
-      label: "port FTP"
+      label: "port FTP de backup"
       description: "Port serveur FTP de backup"
       type: "string"
       required: true
       default: "21"
     - variable: "FTP_USER"
-      label: "Utilsateur FTP"
+      label: "Utilsateur FTP de backup"
       description: "Utilisateur FTP de backup"
       type: "string"
       required: true
