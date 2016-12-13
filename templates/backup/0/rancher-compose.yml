@@ -51,7 +51,7 @@
       description: "Mot de passe MongoDb"
       type: "string"
       required: false
-    - variable: "FTP_HOST backup"
+    - variable: "FTP_HOST"
       label: "Hote FTP de backup"
       description: "Hote serveur FTP de backup"
       type: "string"
