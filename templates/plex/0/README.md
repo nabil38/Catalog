@@ -1,4 +1,4 @@
-# NFS Server
-Chares /export folder mounted on host /export folder
+# Plex Server
+Installs Plex server with deluge client 
 ## Usage
-Use Label "nfs=server" on host for container deployment
+Use Label "plex=1" on host for container deployment

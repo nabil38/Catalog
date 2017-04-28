@@ -1,5 +1,5 @@
-name: NFS server
+name: PLEX server
 description: |
-  NFS Server
+  PLEX Server with deluge client
 version: v0.1
-category: Storage
+category: Entertainment
