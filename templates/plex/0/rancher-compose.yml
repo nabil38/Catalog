@@ -10,6 +10,7 @@
       description: "Localisation du dossier plex sur le host ex: /data/plex"
       type: "string"
       required: true
+      default: "/plex"
     - variable: "PLEX_TOCKEN"
       label: "Tocken plex"
       description: "Token du serveur plex à revendiquer (facultatif)"
