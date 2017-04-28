@@ -1,0 +1,5 @@
+name: NFS server
+description: |
+  NFS Server
+version: v0.1
+category: Storage
