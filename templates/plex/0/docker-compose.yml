@@ -1,0 +1,46 @@
+nfs-server:
+  image: nabs/nfs-server
+  privileged: true
+  volumes:
+    - /exports:/exports
+  command:
+    - /exports
+  labels:
+    io.rancher.container.pull_image: "always"
+    io.rancher.scheduler.global: "true"
+    io.rancher.scheduler.affinity:host_label: "nfs=server"
+
+
+plex:
+  image: timhaak/plex
+  environment:
+    TZ: Europe/Paris
+    VERSION: latest
+    PLEX_TOKEN: ${PLEX_TOCKEN}
+  stdin_open: true
+  network_mode: host
+  volumes:
+    - ${VOLUME}/config:/config
+    - ${VOLUME}/data:/data
+    - ${VOLUME}/transcode:/transcode
+  tty: true
+  labels:
+    io.rancher.scheduler.affinity:host_label: plex=1
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.global: 'true'
+deluge:
+  image: jakexks/deluge-torrent-seedbox
+  stdin_open: true
+  volumes:
+  - ${VOLUME}/data:/home/deluge
+  tty: true
+  ports:
+  - 80:80/tcp
+  - 8112:8112/tcp
+  - 58846:58846/tcp
+  - 58847:58847/tcp
+  - 58847:58847/udp
+  labels:
+    io.rancher.scheduler.affinity:host_label: plex=1
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.global: 'true'

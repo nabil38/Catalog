@@ -1,0 +1,17 @@
+.catalog:
+  name: "plex"
+  version: "v0.1"
+  description: "PLEX server with deluge client"
+  maintainer: "Nabil DJIDI <public@djidi.com>"
+  uuid: plex-0
+  questions:
+    - variable: "VOLUME"
+      label: "Dossier plex"
+      description: "Localisation du dossier plex sur le host ex: /data/plex"
+      type: "string"
+      required: true
+    - variable: "PLEX_TOCKEN"
+      label: "Tocken plex"
+      description: "Token du serveur plex à revendiquer (facultatif)"
+      type: "string"
+      required: false
