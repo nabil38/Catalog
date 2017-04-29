@@ -16,17 +16,15 @@ plex:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.global: 'true'
 deluge:
-  image: jakexks/deluge-torrent-seedbox
+  image: linuxserver/deluge
+  environment:
+    TZ: Europe/Paris
   stdin_open: true
+  network_mode: host
   volumes:
-  - ${VOLUME}/data:/home/deluge
+  - /plex/data:/downloads
+  - /deluge/config:/config
   tty: true
-  ports:
-  - 80:80/tcp
-  - 8112:8112/tcp
-  - 58846:58846/tcp
-  - 58847:58847/tcp
-  - 58847:58847/udp
   labels:
     io.rancher.scheduler.affinity:host_label: plex=1
     io.rancher.container.pull_image: always
