@@ -19,7 +19,7 @@ deluge:
   environment:
     TZ: Europe/Paris
   stdin_open: true
-  privileged: true
+  network_mode: host
   volumes:
   - /plex/data:/downloads
   - /deluge/config:/config
