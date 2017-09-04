@@ -1,0 +1,40 @@
+version: '2'
+services:
+  mysql-lb:
+    image: rancher/lb-service-haproxy:v0.6.4
+    ports:
+      - ${mysql_lb_port}:${mysql_lb_port}
+    labels:
+      io.rancher.scheduler.affinity:host_label: "mysql=1"
+  mysql-data:
+    image: busybox
+    labels:
+      io.rancher.scheduler.affinity:host_label: "mysql=1"
+      io.rancher.container.start_once: true
+    volumes:
+      - /data/mysql:/var/lib/mysql
+  mysql:
+    image: ${mysql_image}
+    environment:
+{{- if eq .Values.mysql_random_root_password "yes"}}
+      MYSQL_RANDOM_ROOT_PASSWORD: ${mysql_random_root_password}
+{{- end}}
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+    tty: true
+    stdin_open: true
+    labels:
+      io.rancher.sidekicks: mysql-data
+    volumes_from:
+      - mysql-data
+  PhpMyAdmin:
+    links:
+    - mysql-lb:db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: ${mysql_lb_port}
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.scheduler.affinity:host_label: mysql=1
+    tty: true
+    image: phpmyadmin/phpmyadmin
+    stdin_open: true
