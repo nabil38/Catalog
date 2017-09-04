@@ -5,7 +5,6 @@ plex:
     VERSION: latest
     PLEX_TOKEN: ${PLEX_TOCKEN}
   stdin_open: true
-  network_mode: host
   volumes:
     - ${VOLUME}/config:/config
     - ${VOLUME}/data:/data
@@ -22,7 +21,7 @@ deluge:
   stdin_open: true
   network_mode: host
   volumes:
-  - /plex/data:/downloads
+  - ${VOLUME}/data:/downloads
   - /deluge/config:/config
   tty: true
   labels:
