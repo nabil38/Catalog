@@ -26,7 +26,7 @@ backup:
     - mysql/mysql-lb:mysql
     - MongoDB/mongo-cluster:mongo
   volumes:
-    - ${HOST_FOLDER}:${HOST_FOLDER}
+    - ${HOST_FOLDER}:/exports
     - /var/run/docker.sock:/tmp/docker.sock:ro
   tty: true
   stdin_open: true
