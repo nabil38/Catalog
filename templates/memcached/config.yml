@@ -1,0 +1,5 @@
+name: Memcache
+description: |
+  Memcache server with label mysql=1
+version: memcache-V1
+category: Clustering

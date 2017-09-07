@@ -1,0 +1,14 @@
+memcache:
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  command:
+  - memcached
+  - -m
+  - '64'
+  image: memcached
+  stdin_open: true
+  labels:
+    io.rancher.container.pull_image: "always"
+    io.rancher.scheduler.global: "true"
+    io.rancher.scheduler.affinity:host_label: "mysql=1"

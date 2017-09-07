@@ -1,0 +1,6 @@
+.catalog:
+  name: "memcache"
+  version: "memcache-V1"
+  description: "Memcache server with label mysql=1"
+  uuid: memcache-0
+memcache:
