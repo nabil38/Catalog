@@ -7,7 +7,7 @@ generic:
     SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
     SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   external_links:
-    - galera/galera-lb:mysql
+    - mysql/mysql-lb:mysql
     - memcached/memcache:mcserver
     - backup/backup:bc
   volumes:

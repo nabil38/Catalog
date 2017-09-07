@@ -99,6 +99,12 @@
       label: "Mot de passe FTP de deploiement"
       description: "Mot de passe FTP de deploiement"
       type: "string"
+    - variable: "HOST_FOLDER"
+      label: "Repertoire à sauvegarder sur le host"
+      description: "Localisation du repertoire sur le host qui contient les données (ex:/data | /exports)"
+      type: "string"
+      required: true
+      default: "/data"
     - variable: "CRON_TIME"
       label: "Tache Cron"
       description: "Evenement Cron (ex:0 0 * * *)"

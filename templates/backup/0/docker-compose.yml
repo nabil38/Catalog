@@ -18,18 +18,19 @@ backup:
     FTP_USER: ${FTP_USER}
     FTP_PASS: ${FTP_PASS}
     FTP_DIRECTORY: ${FTP_DIRECTORY}
+    HOST_FOLDER: ${HOST_FOLDER}
     CRON_TIME: ${CRON_TIME}
     MAX_BACKUPS: ${MAX_BACKUPS}
     INIT_BACKUP: ${INIT_BACKUP}
   external_links:
-    - galera/galera-lb:mysql
+    - mysql/mysql-lb:mysql
     - MongoDB/mongo-cluster:mongo
   volumes:
-    - /exports:/exports
+    - ${HOST_FOLDER}:${HOST_FOLDER}
     - /var/run/docker.sock:/tmp/docker.sock:ro
   tty: true
   stdin_open: true
   labels:
     io.rancher.container.pull_image: "always"
     io.rancher.scheduler.global: "true"
-    io.rancher.scheduler.affinity:host_label: "nfs=server"
+    io.rancher.scheduler.affinity:host_label: "appli=1"
