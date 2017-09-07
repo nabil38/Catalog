@@ -7,13 +7,13 @@ generic:
     SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
     SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   external_links:
-    - mysql/mysql-lb:mysql
-    - memcached/memcache:mcserver
-    - backup/backup:bc
+  - mysql/mysql-lb:mysql
+  - memcached/memcache:mcserver
+  - backup/backup:bc
   volumes:
-    - ${VOLUME}_IMG:/var/www/html/IMG
-    - ${VOLUME}_local:/var/www/html/local
-    - ${VOLUME}_tmp:/var/www/html/tmp
+  - ${VOLUME}_IMG:/var/www/html/IMG
+  - ${VOLUME}_local:/var/www/html/local
+  - ${VOLUME}_tmp:/var/www/html/tmp
   tty: true
   stdin_open: true
   volume_driver: ${VOLUME_DRIVER}

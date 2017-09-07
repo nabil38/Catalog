@@ -23,11 +23,11 @@ backup:
     MAX_BACKUPS: ${MAX_BACKUPS}
     INIT_BACKUP: ${INIT_BACKUP}
   external_links:
-    - mysql/mysql-lb:mysql
-    - MongoDB/mongo-cluster:mongo
+  - mysql/mysql-lb:mysql
+  - MongoDB/mongo-cluster:mongo
   volumes:
-    - ${HOST_FOLDER}:/exports
-    - /var/run/docker.sock:/tmp/docker.sock:ro
+  - ${HOST_FOLDER}:/exports
+  - /var/run/docker.sock:/tmp/docker.sock:ro
   tty: true
   stdin_open: true
   labels:
