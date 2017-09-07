@@ -26,13 +26,13 @@
       type: "string"
       required: true
     - variable: "VOLUME"
-      label: "Prefix du Volume"
-      description: "Prefix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
+      label: "repertoire/Prefix du Volume"
+      description: "/repertoire suivi du prefix des volumes IMG (ex: /data/monsite crée dans /data monsite_IMG, monsite_local, monsite_tmp)"
       type: "string"
       required: false
     - variable: "VOLUME_DRIVER"
       label: "DRIVER Volume"
-      description: "Driver a utiliser pour monter le volume (ex:convoy)"
+      description: "Driver a utiliser pour monter le volume (ex:convoy / local)"
       type: "string"
       required: false
       default: "rancher-nfs"

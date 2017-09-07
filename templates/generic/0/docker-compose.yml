@@ -1,23 +1,25 @@
-generic:
-  image: nabs/nabs:v2
-  environment:
-    DATA_VOLUME: ${VOLUME}
-    DOMAINE_NAME: ${DOMAINE_NAME}
-    SITE_DB_NAME: ${MYSQL_DATABASE}
-    SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
-    SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  external_links:
-  - mysql/mysql-lb:mysql
-  - memcached/memcache:mcserver
-  - backup/backup:bc
-  volumes:
-  - ${VOLUME}_IMG:/var/www/html/IMG
-  - ${VOLUME}_local:/var/www/html/local
-  - ${VOLUME}_tmp:/var/www/html/tmp
-  tty: true
-  stdin_open: true
-  volume_driver: ${VOLUME_DRIVER}
-  labels:
-    io.rancher.container.pull_image: "always"
-    io.rancher.scheduler.global: "true"
-    io.rancher.scheduler.affinity:host_label: "appli=1"
+version: '2'
+services:
+  generic:
+    image: nabs/nabs:v2
+    environment:
+      DATA_VOLUME: ${VOLUME}
+      DOMAINE_NAME: ${DOMAINE_NAME}
+      SITE_DB_NAME: ${MYSQL_DATABASE}
+      SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
+      SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    stdin_open: true
+    external_links:
+    - mysql/mysql-lb:mysql
+    - memcached/memcache:mcserver
+    - backup/backup:bc
+    volumes:
+    - ${VOLUME}_IMG:/var/www/html/IMG
+    - ${VOLUME}_local:/var/www/html/local
+    - ${VOLUME}_tmp:/var/www/html/tmp
+    tty: true
+    volume_driver: ${VOLUME_DRIVER}
+    labels:
+      io.rancher.container.pull_image: "always"
+      io.rancher.scheduler.global: "true"
+      io.rancher.scheduler.affinity:host_label: "appli=1"
