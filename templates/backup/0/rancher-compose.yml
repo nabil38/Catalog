@@ -2,7 +2,7 @@
   name: "backup"
   version: "Backup-V0.2"
   description: "Backup to FTP"
-  maintainer: "Nicolas Bellamy <n.bellamy@titeya.com>"
+  maintainer: "IDC"
   uuid: backup-0
   questions:
     - variable: "MYSQL_HOST"
@@ -56,7 +56,7 @@
       description: "Hote serveur FTP de backup"
       type: "string"
       required: true
-      default: ""
+      default: "dedibackup-dc2.online.net"
     - variable: "FTP_PORT"
       label: "port FTP de backup"
       description: "Port serveur FTP de backup"
@@ -68,12 +68,13 @@
       description: "Utilisateur FTP de backup"
       type: "string"
       required: true
-      default: ""
+      default: "auto"
     - variable: "FTP_PASS"
       label: "Mot de passe FTP de backup"
       description: "Mot de passe FTP"
       type: "string"
       required: true
+      default: "auto"
     - variable: "FTP_DIRECTORY"
       label: "Repertoire FTP"
       description: "Repertoire de destination FTP"
@@ -94,7 +95,7 @@
       label: "Utilsateur FTP de deploiement"
       description: "Utilisateur FTP de deploiement"
       type: "string"
-      default: ""
+      default: "transfer"
     - variable: "FTP_DEV_PASS"
       label: "Mot de passe FTP de deploiement"
       description: "Mot de passe FTP de deploiement"

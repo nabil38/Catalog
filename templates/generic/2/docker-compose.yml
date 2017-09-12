@@ -12,7 +12,6 @@ services:
     stdin_open: true
     external_links:
     - mysql/mysql-lb:mysql
-    - memcached/memcache:mcserver
     - backup/backup:bc
     volumes:
     - /data/${MYSQL_DATABASE}_IMG:/var/www/html/IMG
