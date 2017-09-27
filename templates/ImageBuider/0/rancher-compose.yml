@@ -17,7 +17,7 @@
       required: true
     - variable: "SVN_REPO"
       label: "Lien repository svn"
-      description: "ex: svn://trac.rezo.net/spip"
+      description: "ex: svn://trac.rezo.net/spip/spip"
       type: "string"
       required: true
       default: "svn://svn.alg-network.com/dev/interdev/spip/tags/generic"

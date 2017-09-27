@@ -6,7 +6,7 @@
   uuid: generic-0
   questions:
     - variable: "DOMAINE_NAME"
-      label: "Nom de domaine"
+      label: "Nom de domaine (également utilisé pour récupérer les squelettes et themes du site)"
       description: "Nom de domaine du site"
       type: "string"
       required: true
@@ -31,11 +31,14 @@
       type: "string"
       required: true
     - variable: "VOLUME_DRIVER"
-      label: "DRIVER Volume"
-      description: "Driver a utiliser pour monter le volume (ex:rancher-nfs / local)"
-      type: "string"
-      required: false
+      description: "The VOLUME driver to associate with this server"
+      label: "VOLUME Driver"
+      required: true
       default: "local"
+      type: enum
+      options: # List of options if using type of `enum`
+        - local
+        - rancher-nfs
 
 generic:
   health_check:
