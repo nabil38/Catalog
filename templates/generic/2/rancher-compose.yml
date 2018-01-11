@@ -53,7 +53,11 @@
       description: "The time zone for the server"
       label: "Time zone"
       required: true
-      type: string
+      type: enum
+      options: # List of options if using type of `enum`
+        - "Europe\/Paris"
+        - "Africa\/Algiers"
+        - "Europe\/London"
 
 generic:
   health_check:
