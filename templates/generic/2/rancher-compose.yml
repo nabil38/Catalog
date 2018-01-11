@@ -39,23 +39,8 @@
       options: # List of options if using type of `enum`
         - local
         - rancher-nfs
-    - variable: "TIME_ZONE"
-      description: "The time zone for the server"
-      label: "Time zone"
-      required: true
-      default: "Europe\/Paris"
-      type: enum
-      options: # List of options if using type of `enum`
-        - Europe\/Paris
-        - Africa\/Algiers
-        - Europe\/London
-<<<<<<< HEAD
     - variable: "DEPLOYMENT"
-      description: "Nature of deployment for the site"
-=======
-    - variable: "SITE_DEPLOYMENT"
       description: "Nature of deployment for the system"
->>>>>>> 137fbdea8c2f76a9317d0eafebc9478b95f87600
       label: "Deployment"
       required: true
       default: "restore"
