@@ -49,16 +49,6 @@
         - Europe\/Paris
         - Africa\/Algiers
         - Europe\/London
-    - variable: "SITE_DEPLOYMENT"
-      description: "Nature of deployment for the system"
-      label: "Deployment"
-      required: true
-      default: "restore"
-      type: enum
-      options: # List of options if using type of `enum`
-        - restore
-        - install
-        - demo
 
 generic:
   health_check:
