@@ -54,11 +54,7 @@
       label: "Time zone"
       required: true
       default: "Europe\/Paris"
-      type: enum
-      options: # List of options if using type of `enum`
-        - "Europe\/Paris"
-        - "Africa\/Algiers"
-        - "Europe\/London"
+      type: string
 
 generic:
   health_check:
