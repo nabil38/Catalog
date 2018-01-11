@@ -49,8 +49,8 @@
         - Europe\/Paris
         - Africa\/Algiers
         - Europe\/London
-    - variable: "DEPLOYMENT"
-      description: "Nature of deployment for the site (restore (existing db)/ new install(brand new db) / demo(demo db))"
+    - variable: "SITE_DEPLOYMENT"
+      description: "Nature of deployment for the system"
       label: "Deployment"
       required: true
       default: "restore"
