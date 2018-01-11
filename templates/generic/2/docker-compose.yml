@@ -9,7 +9,6 @@ services:
       SITE_DB_NAME: ${MYSQL_DATABASE}
       SITE_DB_PASSWORD: ${MYSQL_DB_PASSWORD}
       SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      SITE_DEPLOYMENT: ${DEPLOYMENT}
       TIME_ZONE: ${TIME_ZONE}
     stdin_open: true
     external_links:
