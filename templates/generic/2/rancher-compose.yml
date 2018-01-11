@@ -50,7 +50,7 @@
         - install
         - demo
     - variable: "TIME_ZONE"
-      description: "The time zone for the server Europe\/Paris,Africa\/Algiers"
+      description: "The time zone for the server Europe(antislashslash)Paris,AfricaantislashslashAlgiers"
       label: "Time zone"
       required: true
       type: string
