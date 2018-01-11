@@ -1,7 +1,7 @@
 version: '2'
 services:
   generic:
-    image: registry.idcalg.com:5000/idc/generic:v0.2
+    image: nabs/nabs:v1
     environment:
       SVN_REPOSITORY: ${SVN_REPOSITORY}
       DATA_VOLUME: ${MYSQL_DATABASE}
