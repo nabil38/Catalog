@@ -50,14 +50,10 @@
         - install
         - demo
     - variable: "TIME_ZONE"
-      description: "The time zone for the server"
+      description: "The time zone for the server Europe\/Paris,Africa\/Algiers"
       label: "Time zone"
       required: true
-      type: enum
-      options: # List of options if using type of `enum`
-        - "Europe\/Paris"
-        - "Africa\/Algiers"
-        - "Europe\/London"
+      type: string
 
 generic:
   health_check:
