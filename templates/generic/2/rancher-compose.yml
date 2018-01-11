@@ -49,8 +49,13 @@
         - Europe\/Paris
         - Africa\/Algiers
         - Europe\/London
+<<<<<<< HEAD
     - variable: "DEPLOYMENT"
       description: "Nature of deployment for the site"
+=======
+    - variable: "SITE_DEPLOYMENT"
+      description: "Nature of deployment for the system"
+>>>>>>> 137fbdea8c2f76a9317d0eafebc9478b95f87600
       label: "Deployment"
       required: true
       default: "restore"
