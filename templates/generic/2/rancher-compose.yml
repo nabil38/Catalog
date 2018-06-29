@@ -10,6 +10,11 @@
       description: "Nom de domaine du site"
       type: "string"
       required: true
+    - variable: "DESIGIN"
+      label: "Nom de domaine du design à charger"
+      description: "Nom de domaine du site avec le design choisi"
+      type: "string"
+      required: true
     - variable: "SVN_REPOSITORY"
       label: "Repository principal"
       description: "adresse complète du Repository svn du projet"
@@ -49,6 +54,15 @@
         - Europe\/Paris
         - Africa\/Algiers
         - Europe\/London
+    - variable: "SYSTEM_TYPE"
+      description: "Version du systeme"
+      label: "Systeme"
+      required: true
+      default: "full"
+      type: enum
+      options: # List of options if using type of `enum`
+        - full
+        - gestion
 
 generic:
   health_check:
