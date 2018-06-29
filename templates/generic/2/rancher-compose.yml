@@ -54,6 +54,15 @@
       label: "Time zone"
       required: true
       type: string
+    - variable: "SYSTEM_TYPE"
+      description: "Version du systeme"
+      label: "Systeme"
+      required: true
+      default: "full"
+      type: enum
+      options: # List of options if using type of `enum`
+        - full
+        - gestion
 
 generic:
   health_check:
