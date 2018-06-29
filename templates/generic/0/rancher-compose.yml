@@ -1,13 +1,18 @@
 .catalog:
   name: "Generic"
-  version: "Ubuntu-V0.2"
-  description: "Site de base sur alpine"
+  version: "Alpine-V1"
+  description: "Site de base sur ubuntu"
   maintainer: "Nabil DJIDI <public@djidi.com>"
   uuid: generic-0
   questions:
     - variable: "DOMAINE_NAME"
-      label: "Nom de domaine"
+      label: "Nom de domaine (également utilisé pour récupérer les squelettes et themes du site)"
       description: "Nom de domaine du site"
+      type: "string"
+      required: true
+    - variable: "SVN_REPOSITORY"
+      label: "Repository principal"
+      description: "adresse complète du Repository svn du projet"
       type: "string"
       required: true
     - variable: "MYSQL_ROOT_PASSWORD"
@@ -17,7 +22,7 @@
       required: true
     - variable: "MYSQL_DATABASE"
       label: "Base MYSQL"
-      description: "Nom de la base de donnee Mysql"
+      description: "Nom de la base de donnee Mysql, servira egalement de prefix pour le reperoires IMG"
       type: "string"
       required: true
     - variable: "MYSQL_DB_PASSWORD"
@@ -25,17 +30,25 @@
       description: "Mot de passe de la base de donnee Mysql"
       type: "string"
       required: true
-    - variable: "VOLUME"
-      label: "Prefix du Volume"
-      description: "Prefix des volumes IMG (nom des repertoires dans sur le serveur nfs: prefix_IMG, prfix_local, prefix_tmp)"
-      type: "string"
-      required: false
     - variable: "VOLUME_DRIVER"
-      label: "DRIVER Volume"
-      description: "Driver a utiliser pour monter le volume (ex:convoy)"
-      type: "string"
-      required: false
-      default: "convoy-nfs"
+      description: "The VOLUME driver to associate with this server"
+      label: "VOLUME Driver"
+      required: true
+      default: "local"
+      type: enum
+      options: # List of options if using type of `enum`
+        - local
+        - rancher-nfs
+    - variable: "DEPLOYMENT"
+      description: "Nature of deployment for the system"
+      label: "Deployment"
+      required: true
+      default: "restore"
+      type: enum
+      options: # List of options if using type of `enum`
+        - restore
+        - install
+        - demo
 
 generic:
   health_check:
