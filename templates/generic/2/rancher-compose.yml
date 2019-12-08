@@ -6,8 +6,13 @@
   uuid: generic-0
   questions:
     - variable: "DOMAINE_NAME"
-      label: "Nom de domaine (également utilisé pour récupérer les squelettes et themes du site)"
+      label: "Nom de domaine"
       description: "Nom de domaine du site"
+      type: "string"
+      required: true
+    - variable: "DESIGN"
+      label: "Nom du thème à appliquer (utilisé pour récupérer les squelettes et themes du site)"
+      description: "Ex: poneychevalnature.com"
       type: "string"
       required: true
     - variable: "SVN_REPOSITORY"

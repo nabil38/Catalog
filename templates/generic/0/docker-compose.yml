@@ -13,7 +13,7 @@ services:
       TIME_ZONE: ${TIME_ZONE}
     stdin_open: true
     external_links:
-    - mysql/mysql-lb:mysql
+    - galera/galera-lb:mysql
     - backup/backup:bc
     volumes:
     - /data/${MYSQL_DATABASE}_IMG:/var/www/html/IMG

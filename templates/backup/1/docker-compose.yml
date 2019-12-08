@@ -5,10 +5,6 @@ backup:
     MYSQL_PORT: ${MYSQL_PORT}
     MYSQL_USER: ${MYSQL_USER}
     MYSQL_PASS: ${MYSQL_PASS}
-    MONGODB_HOST: ${MONGODB_HOST}
-    MONGODB_PORT: ${MONGODB_PORT}
-    MONGODB_USER: ${MONGODB_USER}
-    MONGODB_PASS: ${MONGODB_PASS}
     FTP_DEV_HOST: ${FTP_DEV_HOST}
     FTP_DEV_PORT: ${FTP_DEV_PORT}
     FTP_DEV_USER: ${FTP_DEV_USER}
@@ -24,7 +20,6 @@ backup:
     INIT_BACKUP: ${INIT_BACKUP}
   external_links:
   - galera/galera-lb:mysql
-  - MongoDB/mongo-cluster:mongo
   volumes:
   - ${HOST_FOLDER}:/exports
   - /var/run/docker.sock:/tmp/docker.sock:ro

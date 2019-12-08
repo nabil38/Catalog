@@ -10,7 +10,7 @@ services:
       SITE_DB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     stdin_open: true
     external_links:
-    - mysql/mysql-lb:mysql
+    - galera/galera-lb:mysql
     - memcached/memcache:mcserver
     - backup/backup:bc
     volumes:

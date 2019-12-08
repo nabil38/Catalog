@@ -1,5 +1,5 @@
 name: Backup
 description: |
-  Backup to FTP powered by Titeya & IDC
-version: Backup-V0.2
+  Backup to FTP powered by IDC
+version: Backup-V0.3
 category: Backup
