@@ -12,7 +12,7 @@ mariadb-galera-server:
     io.rancher.scheduler.global: "true"
   entrypoint: bash -x /opt/rancher/start_galera
 mariadb-galera-data:
-  image: rancher/galera:10.0.22-rancher2
+  image: mariadb:10.4.10
   net: none
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -25,7 +25,7 @@ mariadb-galera-data:
   labels:
     io.rancher.container.start_once: true
 galera-leader-forwarder:
-  image: mariadb:10.4.10
+  image: rancher/galera-leader-proxy:v0.1.0
   net: "container:galera"
   volumes_from:
    - 'mariadb-galera-data'
