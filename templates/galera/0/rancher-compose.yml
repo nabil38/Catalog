@@ -4,6 +4,12 @@
   description: |
     Galera Cluster based on MariaDB 10.0.22 + phpmyadmin
   questions:
+    - variable: "mysql_data"
+      label: "Répertoire de Données"
+      description: "Localisation du répertoire de donnée sur le serveur host (Ex:/data/mysql)"
+      type: "string"
+      default: "/data/mysql"
+      required: true
     - variable: "mysql_root_password"
       type: string
       required: true

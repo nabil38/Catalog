@@ -1,5 +1,5 @@
 mariadb-galera-server:
-  image: rancher/galera:10.0.22-rancher2
+  image: mariadb:10.4.10
   net: "container:galera"
   environment:
     TERM: "xterm"
@@ -17,7 +17,7 @@ mariadb-galera-data:
   environment:
     MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   volumes:
-    - /var/lib/mysql
+    - ${mysql_data}:/var/lib/mysql
     - /etc/mysql/conf.d
     - /docker-entrypoint-initdb.d
     - /opt/rancher
@@ -25,7 +25,7 @@ mariadb-galera-data:
   labels:
     io.rancher.container.start_once: true
 galera-leader-forwarder:
-  image: rancher/galera-leader-proxy:v0.1.0
+  image: mariadb:10.4.10
   net: "container:galera"
   volumes_from:
    - 'mariadb-galera-data'
