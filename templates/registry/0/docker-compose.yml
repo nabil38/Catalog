@@ -19,7 +19,7 @@ registryv2:
   - ${STORAGE_VOLUME}/${CERT_NAME}:/certs
   stdin_open: true
 letsencrypt:
-  image: janeczku/rancher-letsencrypt:v0.3.0
+  image: vxcontrol/rancher-letsencrypt
   environment:
     EULA: 'Yes'
     API_VERSION: ${API_VERSION}
