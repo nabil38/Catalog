@@ -1,0 +1,80 @@
+.catalog:
+  name: "Generic"
+  version: "Alpine-V0.3"
+  description: "Site de base sur ubuntu"
+  maintainer: "Nabil DJIDI <public@djidi.com>"
+  uuid: generic-0
+  questions:
+    - variable: "DOMAINE_NAME"
+      label: "Nom de domaine"
+      description: "Nom de domaine du site"
+      type: "string"
+      required: true
+    - variable: "DESIGN"
+      label: "Nom du thème à appliquer (utilisé pour récupérer les squelettes et themes du site)"
+      description: "Ex: poneychevalnature.com"
+      type: "string"
+      required: true
+    - variable: "SVN_REPOSITORY"
+      label: "Repository principal"
+      description: "adresse complète du Repository svn du projet"
+      type: "string"
+      required: true
+    - variable: "MYSQL_ROOT_PASSWORD"
+      label: "Mot de passe MYSQL"
+      description: "Mot de passe administrateur Mysql (root)"
+      type: "string"
+      required: true
+    - variable: "MYSQL_DATABASE"
+      label: "Base MYSQL"
+      description: "Nom de la base de donnee Mysql, servira egalement de prefix pour le reperoires IMG"
+      type: "string"
+      required: true
+    - variable: "MYSQL_DB_PASSWORD"
+      label: "Mot de passe app MYSQL"
+      description: "Mot de passe de la base de donnee Mysql"
+      type: "string"
+      required: true
+    - variable: "VOLUME_DRIVER"
+      description: "The VOLUME driver to associate with this server"
+      label: "VOLUME Driver"
+      required: true
+      default: "local"
+      type: enum
+      options: # List of options if using type of `enum`
+        - local
+        - rancher-nfs
+    - variable: "DEPLOYMENT"
+      description: "Nature of deployment for the system"
+      label: "Deployment"
+      required: true
+      default: "restore"
+      type: enum
+      options: # List of options if using type of `enum`
+        - restore
+        - install
+        - demo
+    - variable: "TIME_ZONE"
+      description: "The time zone for the server Europe(antislashslash)Paris,AfricaantislashslashAlgiers"
+      label: "Time zone"
+      required: true
+      type: string
+    - variable: "SYSTEM_TYPE"
+      description: "Version du systeme"
+      label: "Systeme"
+      required: true
+      default: "full"
+      type: enum
+      options: # List of options if using type of `enum`
+        - full
+        - gestion
+
+generic:
+  health_check:
+    port: 80
+    interval: 2000
+    initializing_timeout: 60000
+    unhealthy_threshold: 3
+    strategy: recreate
+    healthy_threshold: 2
+    response_timeout: 2000

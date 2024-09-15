@@ -1,0 +1,23 @@
+version: '2'
+services:
+  svn:
+    image: nabs/svn:v1.0
+    environment:
+      CRON_TIME: 0 0 * * *
+      FTP_DIRECTORY: ${FTP_DIRECTORY}
+      FTP_HOST: ${FTP_HOST}
+      FTP_PORT: ${FTP_PORT}
+      FTP_USER: ${FTP_USER}
+      FTP_PASS: ${FTP_PASS}
+      SVN_DIRECTORY: ${SVN_DIRECTORY}
+      INIT_BACKUP: ''
+    stdin_open: true
+    volumes:
+    - /var/svn:/home/svn
+    tty: true
+    ports:
+    - 3690:3690/tcp
+    labels:
+      io.rancher.container.pull_image: "always"
+      io.rancher.scheduler.global: "true"
+      io.rancher.scheduler.affinity:host_label: "svn=1"
