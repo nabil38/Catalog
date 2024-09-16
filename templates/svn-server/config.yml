@@ -1,0 +1,5 @@
+name: SVN
+description: |
+  SVN Server label svn=1
+version: SVN-V1.0
+category: Versioning

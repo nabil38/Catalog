@@ -1,80 +1,58 @@
 .catalog:
-  name: "Generic"
-  version: "Alpine-V0.3"
-  description: "Site de base sur ubuntu"
-  maintainer: "Nabil DJIDI <public@djidi.com>"
-  uuid: generic-0
+  name: "SVN-server"
+  version: "SVN-V1.0"
+  description: "Serveur SVN"
+  maintainer: "IDC"
+  uuid: svn-1
   questions:
-    - variable: "DOMAINE_NAME"
-      label: "Nom de domaine"
-      description: "Nom de domaine du site"
+    - variable: "FTP_HOST"
+      label: "Hote FTP de backup"
+      description: "Hote serveur FTP de backup svn"
       type: "string"
       required: true
-    - variable: "DESIGN"
-      label: "Nom du thème à appliquer (utilisé pour récupérer les squelettes et themes du site)"
-      description: "Ex: poneychevalnature.com"
+      default: "ftp.djidi.org"
+    - variable: "FTP_PORT"
+      label: "port FTP de backup"
+      description: "Port serveur FTP de backup"
       type: "string"
       required: true
-    - variable: "SVN_REPOSITORY"
-      label: "Repository principal"
-      description: "adresse complète du Repository svn du projet"
+      default: "21"
+    - variable: "FTP_USER"
+      label: "Utilsateur FTP de backup"
+      description: "Utilisateur FTP de backup"
       type: "string"
       required: true
-    - variable: "MYSQL_ROOT_PASSWORD"
-      label: "Mot de passe MYSQL"
-      description: "Mot de passe administrateur Mysql (root)"
+      default: "sauvegarde"
+    - variable: "FTP_PASS"
+      label: "Mot de passe FTP de backup"
+      description: "Mot de passe FTP"
       type: "string"
       required: true
-    - variable: "MYSQL_DATABASE"
-      label: "Base MYSQL"
-      description: "Nom de la base de donnee Mysql, servira egalement de prefix pour le reperoires IMG"
+      default: "auto"
+    - variable: "FTP_DIRECTORY"
+      label: "Repertoire FTP"
+      description: "Localisation du Repertoire de sauvegarde SVN"
       type: "string"
       required: true
-    - variable: "MYSQL_DB_PASSWORD"
-      label: "Mot de passe app MYSQL"
-      description: "Mot de passe de la base de donnee Mysql"
+      default: "/svn"
+    - variable: "SVN_DIRECTORY"
+      label: "Locasation des repositories svn"
+      description: "Localisation des repositories sur le serveur"
       type: "string"
       required: true
-    - variable: "VOLUME_DRIVER"
-      description: "The VOLUME driver to associate with this server"
-      label: "VOLUME Driver"
+      default: "/home/svn"
+    - variable: "CRON_TIME"
+      label: "Tache Cron"
+      description: "Evenement Cron (ex:0 0 * * *)"
+      type: "string"
       required: true
-      default: "local"
-      type: enum
-      options: # List of options if using type of `enum`
-        - local
-        - rancher-nfs
-    - variable: "DEPLOYMENT"
-      description: "Nature of deployment for the system"
-      label: "Deployment"
-      required: true
-      default: "restore"
-      type: enum
-      options: # List of options if using type of `enum`
-        - restore
-        - install
-        - demo
-    - variable: "TIME_ZONE"
-      description: "The time zone for the server Europe(antislashslash)Paris,AfricaantislashslashAlgiers"
-      label: "Time zone"
-      required: true
-      type: string
-    - variable: "SYSTEM_TYPE"
-      description: "Version du systeme"
-      label: "Systeme"
-      required: true
-      default: "full"
-      type: enum
-      options: # List of options if using type of `enum`
-        - full
-        - gestion
-
-generic:
+      default: "0 0 * * *"
+svn:
   health_check:
-    port: 80
+    port: 3690
     interval: 2000
-    initializing_timeout: 60000
-    unhealthy_threshold: 3
-    strategy: recreate
-    healthy_threshold: 2
+    initializing_timeout: 18000000
+    unhealthy_threshold: 1
+    strategy: none
+    healthy_threshold: 1
     response_timeout: 2000
