@@ -41,6 +41,12 @@
       type: "string"
       required: true
       default: "/home/svn"
+    - variable: "SVN_REPOSITORIES"
+      label: "Dump repositories"
+      description: "Liste des repositories svn à dumper séparés par |. L'ensemble des repositories seront sauvegardés dans un tar.gz global par ailleurs"
+      type: "string"
+      required: true
+      default: "admin|dev|idc_adm"
     - variable: "CRON_TIME"
       label: "Tache Cron"
       description: "Evenement Cron (ex:0 0 * * *)"
