@@ -1,9 +1,9 @@
 .catalog:
   name: "SVN-server"
-  version: "SVN-V1.0"
-  description: "Serveur SVN"
+  version: "SVN-V1.1"
+  description: "Serveur SVN non root"
   maintainer: "IDC"
-  uuid: svn-1
+  uuid: svn-2
   questions:
     - variable: "FTP_HOST"
       label: "Hote FTP de backup"

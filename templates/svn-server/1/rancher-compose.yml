@@ -1,7 +1,7 @@
 .catalog:
   name: "SVN-server"
   version: "SVN-V1.0"
-  description: "Serveur SVN"
+  description: "Serveur SVN root"
   maintainer: "IDC"
   uuid: svn-1
   questions:
