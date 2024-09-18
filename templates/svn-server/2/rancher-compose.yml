@@ -1,0 +1,58 @@
+.catalog:
+  name: "SVN-server"
+  version: "SVN-V1.0"
+  description: "Serveur SVN"
+  maintainer: "IDC"
+  uuid: svn-1
+  questions:
+    - variable: "FTP_HOST"
+      label: "Hote FTP de backup"
+      description: "Hote serveur FTP de backup svn"
+      type: "string"
+      required: true
+      default: "ftp.djidi.org"
+    - variable: "FTP_PORT"
+      label: "port FTP de backup"
+      description: "Port serveur FTP de backup"
+      type: "string"
+      required: true
+      default: "21"
+    - variable: "FTP_USER"
+      label: "Utilsateur FTP de backup"
+      description: "Utilisateur FTP de backup"
+      type: "string"
+      required: true
+      default: "sauvegarde"
+    - variable: "FTP_PASS"
+      label: "Mot de passe FTP de backup"
+      description: "Mot de passe FTP"
+      type: "string"
+      required: true
+      default: "auto"
+    - variable: "FTP_DIRECTORY"
+      label: "Repertoire FTP"
+      description: "Localisation du Repertoire de sauvegarde SVN"
+      type: "string"
+      required: true
+      default: "/svn"
+    - variable: "SVN_REPOSITORIES"
+      label: "Dump repositories"
+      description: "Liste des repositories svn à dumper séparés par |. L'ensemble des repositories seront sauvegardés dans un tar.gz global par ailleurs"
+      type: "string"
+      required: true
+      default: "admin|dev|idc_adm"
+    - variable: "CRON_TIME"
+      label: "Tache Cron"
+      description: "Evenement Cron (ex:0 0 * * *)"
+      type: "string"
+      required: true
+      default: "0 0 * * *"
+svn:
+  health_check:
+    port: 3690
+    interval: 2000
+    initializing_timeout: 18000000
+    unhealthy_threshold: 1
+    strategy: none
+    healthy_threshold: 1
+    response_timeout: 2000
