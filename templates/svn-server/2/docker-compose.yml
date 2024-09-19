@@ -9,7 +9,7 @@ services:
       FTP_PORT: ${FTP_PORT}
       FTP_USER: ${FTP_USER}
       FTP_PASS: ${FTP_PASS}
-      SVN_DIRECTORY: ${SVN_DIRECTORY}
+      SVN_REPOSITORIES: ${SVN_REPOSITORIES}
       INIT_BACKUP: ''
     stdin_open: true
     volumes:
