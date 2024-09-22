@@ -1,0 +1,68 @@
+mariadb-galera-server:
+  image: mariadb:10.4.10
+  net: "container:galera"
+  environment:
+    TERM: "xterm"
+    MYSQL_ROOT_PASSWORD: "${mysql_root_password}"
+  volumes_from:
+    - 'mariadb-galera-data'
+  labels:
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:host_label: "mysql=2"
+    io.rancher.scheduler.global: "true"
+  entrypoint: bash -x /opt/rancher/start_galera
+mariadb-galera-data:
+  image: mariadb:10.4.10
+  net: none
+  environment:
+    MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+  volumes:
+    - ${mysql_data}:/var/lib/mysql
+    - /etc/mysql/conf.d
+    - /docker-entrypoint-initdb.d
+    - /opt/rancher
+  command: /bin/true
+  labels:
+    io.rancher.container.start_once: true
+galera-leader-forwarder:
+  image: rancher/galera-leader-proxy:v0.1.0
+  net: "container:galera"
+  volumes_from:
+   - 'mariadb-galera-data'
+galera:
+  image: rancher/galera-conf:v0.2.0
+  labels:
+    io.rancher.sidekicks: mariadb-galera-data,mariadb-galera-server,galera-leader-forwarder
+    io.rancher.container.hostname_override: container_name
+    io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+    io.rancher.scheduler.affinity:host_label: "mysql=2"
+    io.rancher.scheduler.global: "true"
+  volumes_from:
+    - 'mariadb-galera-data'
+  stdin_open: true
+  tty: true
+  command: /bin/bash
+
+galera-lb:
+  expose:
+  - 3306:3307/tcp
+  tty: true
+  labels:
+    io.rancher.scheduler.affinity:host_label: "mysql=2"
+    io.rancher.scheduler.global: "true"
+  image: rancher/load-balancer-service
+  links:
+  - galera:galera
+  stdin_open: true
+
+PhpMyAdmin:
+  links:
+  - galera-lb:db
+  labels:
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: pma=2
+    urlsite: dbadmgd.idcalg.com
+  tty: true
+  image: phpmyadmin/phpmyadmin
+  stdin_open: true
